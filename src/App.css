@@ -1,0 +1,222 @@
+body, html {
+  height: 100%;
+  margin: 0px;
+  color: white;
+  background-color: black;
+}
+
+/* toppage */
+
+.toppage {
+  margin: 10px;
+  font-size: large;
+  /* width: 20%; */
+  display: flex;
+  flex-direction: column;
+}
+
+.toppage h1 {
+  text-decoration: underline;
+  font-style: italic;
+}
+
+.toppage input {
+  font-size: 20px;
+  width: 10%;
+  height: 30px;
+  margin-bottom: 30px;
+}
+
+.btntop button {
+  height: 40px;
+  width: 200px;
+  font-size: 20px;
+  font-style: italic;
+}
+
+/* promo */
+
+.dados {
+  margin: 10px;
+  font-size: large;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dados h1 {
+  text-decoration: underline;
+  font-style: italic;
+}
+
+.dados input {
+  height: 20px;
+  margin-bottom: 30px;
+}
+
+.btndados {
+  display: flex;
+  justify-content: center;
+}
+
+.btndados button {
+  height: 40px;
+  width: 200px;
+  font-size: 20px;
+  font-style: italic;
+}
+
+.pulldados {
+  margin: 10px;
+  border: 2px white solid;
+}
+
+/* .container {
+  display: flex;
+  //margin-bottom: 20px;
+}
+
+.sub-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sub-container button {
+  margin: 5px;
+}
+
+.container-dados {
+  margin: 5px;
+  border: 1px white solid;
+} */
+
+.container {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  background-color: rgba(92, 67, 106, 0.8);
+  /* width: 90%; */
+}
+
+.container-scroll{
+  /* display: flex; */
+  /* overflow: hidden; */
+  /* background-color: rgba(92, 67, 106, 0.8); */
+  /* border-radius: 25px; */
+  /* width: 90%; */
+  flex-direction: row;
+}
+
+.image {
+  position: relative;
+  padding: 1%;
+  border: black double 4px;
+  border-radius: 10px;
+  margin: 1%;
+  text-align: center;
+}
+
+.image:hover {
+  box-shadow: 0px 0px 15px 5px white;
+}
+
+.image img {
+  width: 160px;
+  height: 200px;
+  margin-bottom: 5%;
+}
+
+.image a {
+  text-decoration: none;
+  color: black;
+}
+
+.image p{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: rgb(54, 155, 54);
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 40px;
+  float: right;
+  border-radius: 50%;
+}
+
+.image figcaption {
+  font-size: 16px;
+}
+
+/* linha */
+
+.line {
+  background-color: white;
+  height: 10px;
+  margin-top: 20px;
+}
+
+/* destaque */
+
+.dados-destaque {
+  margin: 10px;
+  font-size: large;
+  /* width: 20%; */
+  display: flex;
+  flex-direction: column;
+}
+
+.dados-destaque h1 {
+  text-decoration: underline;
+  font-style: italic;
+}
+
+.dados-destaque input {
+  height: 20px;
+  margin-bottom: 30px;
+  width: 20%;
+}
+
+.dados-destaque textarea {
+  width: 50%;
+}
+
+.btndados-destaque {
+  display: flex;
+  justify-content: center;
+}
+
+.btndados-destaque button {
+  height: 40px;
+  width: 200px;
+  font-size: 20px;
+  font-style: italic;
+}
+
+.pulldestaques {
+  margin: 10px;
+  border: 2px solid white;
+}
+
+.container-destaques {
+  display: flex;
+}
+
+.destaques {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.destaques button {
+  width: 25%;
+}
+
+.destaques img {
+  border-radius: 10px;
+  width: 300px;
+  height: 300px;
+}
