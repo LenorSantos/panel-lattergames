@@ -196,26 +196,26 @@ body, html {
   font-style: italic;
 }
 
-.pulldestaques {
+.pullnews {
   margin: 10px;
   border: 2px solid white;
 }
 
-.container-destaques {
+.container-news {
   display: flex;
 }
 
-.destaques {
+.news {
   display: flex;
   flex-direction: column;
   margin: 10px;
 }
 
-.destaques button {
+.news button {
   width: 25%;
 }
 
-.destaques img {
+.news img {
   border-radius: 10px;
   width: 300px;
   height: 300px;
