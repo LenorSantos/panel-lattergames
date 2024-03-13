@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useState, useRef, useEffect } from "react";
 import { promoService } from "../services/promoService";
 
@@ -6,8 +5,8 @@ export default function Promo() {
     // data
     const [pulldata, setpulldata] = useState([]);
 
-    const getdata = () => {
-        promoService.getData().then(result => {
+    async function getdata() {
+        await promoService.getData().then(result => {
             setpulldata(result.data);
         }).catch(err => {
             alert("erro ao requisitar as promoções");
@@ -17,33 +16,32 @@ export default function Promo() {
     // senddata
     const refproducts = useRef();
     const [link, setlink] = useState("");
-    const [porcentagem, setporcentagem] = useState("");
-    const [titulo, settitulo] = useState("");
-    const [preco, setpreco] = useState("");
+    const [percent, setPercent] = useState("");
+    const [title, setTitle] = useState("");
+    const [price, setPrice] = useState("");
     const [img, setImg] = useState([]);
 
     async function senddata() {
         await promoService.sendData({
             img: img,
             link: link,
-            porcentagem: porcentagem,
-            titulo: titulo,
-            preco: preco,
+            percent: percent,
+            title: title,
+            price: price,
         }).then(result => {
-            // console.log(result);
-            if (result.status !== 200) alert("Erro ao salvar promoção");
-        }).finally(() => {getdata();})
+            if ((result.status !== 200) && (result.status !== 201)) alert("Erro ao salvar promoção");
+        }).finally(() => {getdata()});
     };
 
-    const deletedata = (val) => {
-        axios.post("http://localhost:3001/deleteproducts", val).then((result) => {
+    async function deldata(title) {
+        await promoService.delData(title).then((result) => {
             if (result.status === 200) {
                 console.log("deletado");
                 getdata();
             }
-        }).catch((error) => {
-            console.log(error);
-        }).finally(() => { getdata(); });
+        }).catch((err) => {
+            console.log(err);
+        }).finally(() => {getdata()});
     }
 
     useEffect(() => {
@@ -53,25 +51,25 @@ export default function Promo() {
     return (
         <>
             <div className="dados">
-                <h1>Promo</h1>
+                <h1>Cadastrar promoção</h1>
                 <label>Link:</label>
                 <input type="text" onChange={(event) => {
                     setlink(event.target.value);
                 }}
                 />
-                <label>Porcentagem:</label>
+                <label>percent:</label>
                 <input type="text" onChange={(event) => {
-                    setporcentagem(event.target.value);
+                    setPercent(event.target.value);
                 }}
                 />
-                <label>Titulo:</label>
+                <label>title:</label>
                 <input type="text" onChange={(event) => {
-                    settitulo(event.target.value);
+                    setTitle(event.target.value);
                 }}
                 />
                 <label>Preço:</label>
                 <input type="text" onChange={(event) => {
-                    setpreco(event.target.value);
+                    setPrice(event.target.value);
                 }}
                 />
                 <label>Imagem</label>
@@ -89,23 +87,22 @@ export default function Promo() {
                     {Array.from(pulldata).map((val) => {
                         return (
                             <div className="container-scroll">
-                                <button onClick={() => { deletedata(val) }}>apagar</button>
-                                {val.id}
+                                <button onClick={() => { deldata(val.title) }}>apagar</button>
                                 <figure className="image">
                                     <a href={val.link}>
-                                        <p>{val.porcentagem}</p>
+                                        <p>{val.percent}</p>
                                         {/* <img src={`img/${val.img}`} alt="imgpng"/> */}
                                         <img src={val.imgdata} alt="imgpng" />
-                                        <figcaption>{val.titulo}</figcaption>
+                                        <figcaption>{val.title}</figcaption>
                                         <br />
-                                        <figcaption>{val.preco}</figcaption>
+                                        <figcaption>{val.price}</figcaption>
                                     </a>
                                 </figure>
                             </div>
                         );
                     })}
                 </div>
-                <p>productsção</p>
+                <p>Promos</p>
                 <button onClick={() => {getdata()}}>Atualizar Promo</button>
             </div>
         </>

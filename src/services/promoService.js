@@ -5,9 +5,11 @@ export const promoService = {
         return await app.get('/promos');
     },
     sendData: async (data) => {
-        console.log(data);
         return await app.post('/sendpromos', data, {
             headers: { 'Content-Type': 'multipart/form-data' },
         });
+    },
+    delData: async (title) => {
+        return await app.delete(`/delproducts/${title}`);
     }
 };
