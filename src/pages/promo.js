@@ -9,6 +9,7 @@ export default function Promo() {
         await promoService.getData().then(result => {
             setpulldata(result.data);
         }).catch(err => {
+            // console.log(err);
             alert("erro ao requisitar as promoções");
         });
     }
