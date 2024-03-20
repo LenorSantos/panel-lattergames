@@ -88,7 +88,7 @@ export default function Promo() {
                     {Array.from(pulldata).map((val) => {
                         return (
                             <div className="container-scroll">
-                                <button onClick={() => { deldata(val.title) }}>apagar</button>
+                                <button onClick={() => { deldata(val.id) }}>apagar</button>
                                 <figure className="image">
                                     <a href={val.link}>
                                         <p>{val.percent}</p>
