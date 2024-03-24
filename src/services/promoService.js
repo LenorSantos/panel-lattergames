@@ -9,7 +9,7 @@ export const promoService = {
             headers: { 'Content-Type': 'multipart/form-data' },
         });
     },
-    delData: async (title) => {
-        return await app.delete(`/delproducts/${title}`);
+    delData: async (id) => {
+        return await app.delete(`/delpromos/${id}`);
     }
 };

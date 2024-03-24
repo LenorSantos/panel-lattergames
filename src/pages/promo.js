@@ -10,11 +10,11 @@ export default function Promo() {
             setpulldata(result.data);
         }).catch(err => {
             // console.log(err);
-            alert("erro ao requisitar as promoções");
+            // alert("erro ao requisitar as promoções");
         });
     }
 
-    // senddata
+    // send promo
     const refproducts = useRef();
     const [link, setlink] = useState("");
     const [percent, setPercent] = useState("");
@@ -34,17 +34,18 @@ export default function Promo() {
         }).finally(() => {getdata()});
     };
 
-    async function deldata(title) {
-        await promoService.delData(title).then((result) => {
+    // delete promo
+    async function deldata(id) {
+        await promoService.delData(id).then((result) => {
             if (result.status === 200) {
                 console.log("deletado");
-                getdata();
             }
         }).catch((err) => {
             console.log(err);
         }).finally(() => {getdata()});
     }
 
+    // initial req
     useEffect(() => {
         getdata();
     }, []);
@@ -68,15 +69,13 @@ export default function Promo() {
                     setTitle(event.target.value);
                 }}
                 />
-                <label>Preço:</label>
+                <label>Price:</label>
                 <input type="text" onChange={(event) => {
                     setPrice(event.target.value);
                 }}
                 />
                 <label>Imagem</label>
                 <input type="file" onChange={(event) => {
-                    // setnameimage(event.target.files[0].name);
-                    // setimage(event.target.files[0]);
                     setImg(event.target.files[0]);
                 }} ref={refproducts} />
                 <div className="btndados">
@@ -92,7 +91,6 @@ export default function Promo() {
                                 <figure className="image">
                                     <a href={val.link}>
                                         <p>{val.percent}</p>
-                                        {/* <img src={`img/${val.img}`} alt="imgpng"/> */}
                                         <img src={val.imgdata} alt="imgpng" />
                                         <figcaption>{val.title}</figcaption>
                                         <br />
@@ -104,7 +102,7 @@ export default function Promo() {
                     })}
                 </div>
                 <p>Promos</p>
-                <button onClick={() => {getdata()}}>Atualizar Promo</button>
+                <button onClick={() => {getdata()}}>Atualizar Promos</button>
             </div>
         </>
     );
