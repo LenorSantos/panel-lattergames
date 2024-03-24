@@ -1,14 +1,9 @@
-// import "./App.css";
-// import {useState, useRef, useEffect} from "react";
-// import axios from "axios";
-import Datetime from "./pages/datetime";
-import News from "./pages/news";
-import Promo from "./pages/promo";
+import Datetime from "./modules/datetime";
+import News from "./modules/news";
+import Promo from "./modules/promo";
 import './styles/_main.css';
 
 function App() {
-  
-
   return (
     <div className="App">
       <h1 className="headerText">Painel de controle</h1>
