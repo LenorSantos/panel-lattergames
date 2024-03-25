@@ -1,6 +1,4 @@
-import Datetime from "./modules/datetime";
-import News from "./modules/news";
-import Promo from "./modules/promo";
+import { modules } from "./modules/index.";
 import './styles/_main.css';
 
 function App() {
@@ -8,15 +6,15 @@ function App() {
     <div className="App">
       <h1 className="headerText">Painel de controle</h1>
       {/* Datetime */}
-      <Datetime />
+      <modules.Datetime />
 
       {/* promo */}
-      <Promo />
+      <modules.Promo />
 
       <div className="line"></div>
 
       {/* inicio news */}
-      <News />
+      <modules.News />
     </div>
   );
 }
