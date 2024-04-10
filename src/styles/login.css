@@ -1,0 +1,40 @@
+body,
+html {
+    height: 100%;
+    margin: 0px;
+    color: white;
+    background-color: black;
+}
+
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.box-login {
+  border: 2px solid gray;
+  width: 35%;
+  height: 70%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-login div {
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+}
+
+.box-login div input[type=text] {
+  margin-bottom: 10%;
+  height: 25px;
+}
+
+/* .box-login button {
+  margin: 0;
+} */

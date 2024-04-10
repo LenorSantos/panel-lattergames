@@ -5,11 +5,11 @@ export const promoService = {
         return await app.get('/promos');
     },
     sendData: async (data) => {
-        return await app.post('/sendpromos', data, {
+        return await app.post('/promos', data, {
             headers: { 'Content-Type': 'multipart/form-data' },
         });
     },
     delData: async (id) => {
-        return await app.delete(`/delpromos/${id}`);
+        return await app.delete('/promos', {params: {id: id}});
     }
 };

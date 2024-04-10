@@ -8,4 +8,4 @@ export const app = axios.create({
         'Content-Type': 'application/json'
     },
     timeout: time,
-})
+});

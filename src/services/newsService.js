@@ -5,11 +5,11 @@ export const newsService = {
         return await app.get('/news');
     },
     sendNews: async (data) => {
-        return await app.post('/setnews', data, {
+        return await app.post('/news', data, {
             headers: { 'Content-Type': 'multipart/form-data' },
         });
     },
     delNews: async (id) => {
-        return await app.delete(`/delnews/${id}`);
+        return await app.delete('/news', {params: {id: id}});
     }
 };
