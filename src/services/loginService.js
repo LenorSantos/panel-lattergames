@@ -1,21 +1,18 @@
 import { app } from "./config";
-import uniqid from "uniqid";
+// import uniqid from "uniqid";
 
 export const LoginService = {
   initial: async () => {
     return await app.get('/login', {
       params: {
-        initial: `${uniqid()}`
+        initial: 1
       }
     });
   },
-  login: async (user, pass) => {
+  login: async (user) => {
     return await app.get('/login', {
       params: {
-        login: {
-          user: user,
-          pass: pass
-        }
+        login: user
       }
     });
   }
