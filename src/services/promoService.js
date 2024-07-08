@@ -1,4 +1,4 @@
-import { app } from "./config";
+import { app, token } from "./config";
 
 export const promoService = {
     getData: async () => {
@@ -6,7 +6,10 @@ export const promoService = {
     },
     sendData: async (data) => {
         return await app.post('/promos', data, {
-            headers: { 'Content-Type': 'multipart/form-data' },
+            headers: {
+                'Content-Type': 'multipart/form-data',
+                'token': `${token}`
+            },
         });
     },
     delData: async (id) => {

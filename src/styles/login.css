@@ -1,19 +1,19 @@
-body,
+/* body,
 html {
     height: 100%;
     margin: 0px;
     color: white;
     background-color: black;
-}
+} */
 
-.login {
+/* .login {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
-}
+} */
 
-.box-login {
+/* .box-login {
   border: 2px solid gray;
   width: 35%;
   height: 70%;
@@ -22,19 +22,25 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+} */
 
-.box-login div {
+/* .box-login div {
   display: flex;
   width: 80%;
   flex-direction: column;
-}
+} */
 
-.box-login div input[type=text] {
+/* .box-login div input[type=text] {
   margin-bottom: 10%;
   height: 25px;
-}
+} */
 
 /* .box-login button {
   margin: 0;
 } */
+
+iframe {
+  width: 100%;
+  height: 98vh;
+  border: none;
+}

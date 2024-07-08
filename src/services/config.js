@@ -9,3 +9,5 @@ export const app = axios.create({
     },
     timeout: time,
 });
+
+export const token = window.sessionStorage.getItem("token");
