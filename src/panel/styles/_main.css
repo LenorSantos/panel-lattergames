@@ -1,0 +1,21 @@
+@import './_imports.css';
+
+body,
+html {
+    height: 100%;
+    margin: 0px;
+    color: white;
+    background-color: black;
+}
+
+/* linha */
+
+.line {
+    background-color: white;
+    height: 10px;
+    margin-top: 20px;
+}
+
+.headerText {
+    text-align: center;
+}
