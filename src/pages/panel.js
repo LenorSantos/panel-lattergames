@@ -1,14 +1,8 @@
 import Head from "next/head";
 import { modules } from "../panel/modules/index.js";
-import { useState, useEffect } from "react";
 // import './styles/_main.css';
 
 function Panel() {
-  
-  useEffect(() => {
-    console.log(window.sessionStorage.getItem("token"));
-  });
-  
   return (
     <>
       <Head>

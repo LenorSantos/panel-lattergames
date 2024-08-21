@@ -11,5 +11,3 @@ export const app = axios.create({
 });
 
 // export const token = window.sessionStorage.getItem("token");
-
-// document.addEventListener("DOMContentLoaded", event => {console.log(event)});
