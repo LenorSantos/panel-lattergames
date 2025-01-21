@@ -8,11 +8,24 @@ export const promoService = {
         return await app.post('/promos', data, {
             headers: {
                 'Content-Type': 'multipart/form-data',
-                'token': `${token}`
+                Authorization: `${window.sessionStorage.getItem("token")}`,
             },
+        }).catch(err => {
+            alert("Acesso expirado ou não autorizado.");
+            if (err.response.status == 401) window.location.href = "/";
         });
     },
     delData: async (id) => {
-        return await app.delete('/promos', {params: {id: id}});
+        return await app.delete('/promos', {
+            params: {
+                id: id
+            },
+            headers: {
+                Authorization: `${window.sessionStorage.getItem("token")}`,
+            }
+        }).catch(err => {
+            alert("Acesso expirado ou não autorizado.");
+            if (err.response.status == 401) window.location.href = "/";
+        });
     }
 };
