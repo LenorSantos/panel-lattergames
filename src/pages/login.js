@@ -37,6 +37,7 @@ export default function Login() {
   }
 
   useEffect(() => {
+    // console.log(pubKey);
     window.sessionStorage.removeItem("token");
     initial();
   }, []);
