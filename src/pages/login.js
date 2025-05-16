@@ -11,9 +11,7 @@ export default function Login() {
   const time = 30000;
 
   const app = axios.create({
-    // baseURL: "http://localhost:3001",
-    // baseURL: "https://server-latter-games.vercel.app/",
-    baseURL: process.env.SERVER_API,
+    baseURL: process.env.NEXT_PUBLIC_SERVER_API,
     headers: {
       'Content-Type': 'application/json'
     },
@@ -39,7 +37,7 @@ export default function Login() {
   }
 
   useEffect(() => {
-    console.log(process.env.SERVER_API);
+    console.log(process.env.NEXT_PUBLIC_SERVER_API);
     window.sessionStorage.removeItem("token");
     window.sessionStorage.removeItem("cypher");
     initial();
