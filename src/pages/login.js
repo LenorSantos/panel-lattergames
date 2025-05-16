@@ -11,9 +11,9 @@ export default function Login() {
   const time = 30000;
 
   const app = axios.create({
-    // baseURL: "http://192.168.1.91:3001",
-    baseURL: "http://localhost:3001",
-    // baseURL: "https://server-latter-games.vercel.app:3001",
+    // baseURL: "http://localhost:3001",
+    // baseURL: "https://server-latter-games.vercel.app/",
+    baseURL: process.env.SERVER_API,
     headers: {
       'Content-Type': 'application/json'
     },
@@ -39,7 +39,7 @@ export default function Login() {
   }
 
   useEffect(() => {
-    // console.log(pubKey);
+    console.log(process.env.SERVER_API);
     window.sessionStorage.removeItem("token");
     window.sessionStorage.removeItem("cypher");
     initial();
@@ -53,11 +53,9 @@ export default function Login() {
       login: cypher
     }).then((result) => {
       if (result.status === 200) {
-        // console.log(result.data);
         window.sessionStorage.setItem("token", result.data.token);
         window.sessionStorage.setItem("cypher", cypher);
         window.location.href = "/panel";
-        // console.log(window.location.href + "/panel");
       }
     }).catch(err => {
       alert("Login erro");
@@ -69,11 +67,9 @@ export default function Login() {
       <div className='box-login'>
         <h1>Login</h1>
         <div>
-          {/* <label>User</label> */}
           <input type='text' placeholder='User' onChange={(event) => { setUser(event.target.value) }} />
         </div>
         <div>
-          {/* <label>Pass</label> */}
           <input type='text' placeholder='Pass' onChange={(event) => { setPass(event.target.value) }} />
         </div>
         <button onClick={() => { login() }} >Login</button>

@@ -4,7 +4,6 @@ export const DatetimeService = {
     sendDatetime: async (data) => {
         return await app.post('/datetime', data, {
             headers: {
-                'Content-Type': 'multipart/form-data',
                 Authorization: `${window.sessionStorage.getItem("token")}`,
             },
         }).catch(err => {
