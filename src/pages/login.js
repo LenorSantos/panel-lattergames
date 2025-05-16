@@ -37,7 +37,6 @@ export default function Login() {
   }
 
   useEffect(() => {
-    console.log(process.env.NEXT_PUBLIC_SERVER_API);
     window.sessionStorage.removeItem("token");
     window.sessionStorage.removeItem("cypher");
     initial();
