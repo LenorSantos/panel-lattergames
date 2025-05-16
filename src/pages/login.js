@@ -11,7 +11,9 @@ export default function Login() {
   const time = 30000;
 
   const app = axios.create({
+    // baseURL: "http://192.168.1.91:3001",
     baseURL: "http://localhost:3001",
+    // baseURL: "https://server-latter-games.vercel.app:3001",
     headers: {
       'Content-Type': 'application/json'
     },
@@ -39,6 +41,7 @@ export default function Login() {
   useEffect(() => {
     // console.log(pubKey);
     window.sessionStorage.removeItem("token");
+    window.sessionStorage.removeItem("cypher");
     initial();
   }, []);
 
@@ -52,6 +55,7 @@ export default function Login() {
       if (result.status === 200) {
         // console.log(result.data);
         window.sessionStorage.setItem("token", result.data.token);
+        window.sessionStorage.setItem("cypher", cypher);
         window.location.href = "/panel";
         // console.log(window.location.href + "/panel");
       }

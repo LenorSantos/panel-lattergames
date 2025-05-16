@@ -21,7 +21,7 @@ export default function News() {
 
     async function sendNews() {
         await newsService.sendNews({
-            img: img,
+            imgdata: img,
             text: text,
         }).then(result => {
             if ((result.status !== 200) && (result.status !== 201)) alert("Erro ao salvar destaque");
@@ -53,7 +53,11 @@ export default function News() {
                 }}></textarea>
                 <label>Img</label>
                 <input type="file" onChange={(event) => {
-                    setImg(event.target.files[0]);
+                    var reader = new FileReader();
+                    reader.readAsDataURL(event.target.files[0]);
+                    reader.onload = function () {
+                        setImg(reader.result);
+                    };
                 }} ref={refnews} />
                 <div className="btndados-destaque">
                     <button onClick={sendNews}>Enviar Dados</button>
@@ -61,10 +65,10 @@ export default function News() {
             </div>
             <div className="news">
                 <div className="container-news">
-                    {Array.from(news).map((val) => {
+                    {Array.from(news).map((val, index) => {
                         return (
-                            <div key={val.id} className="news">
-                                <button onClick={() => { delnews(val.id) }}>apagar</button>
+                            <div key={index} className="news">
+                                <button onClick={() => { delnews(val._id) }}>apagar</button>
                                 <img src={val.imgdata} alt="imgpng" />
                             </div>
                         );

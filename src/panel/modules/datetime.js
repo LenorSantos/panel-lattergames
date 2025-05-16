@@ -1,9 +1,24 @@
 import { useState } from "react";
-import {DatetimeService} from "../services/datetimeService";
+import { DatetimeService } from "../services/datetimeService";
 
 export default function Datetime() {
     const [time, setTime] = useState("");
     const [date, setDate] = useState("");
+
+    async function DateTime() {
+        await DatetimeService.sendDatetime({
+            time: time,
+            date: date,
+        }).then(result => {
+            if ((result.status !== 200) && (result.status !== 201)) {
+                alert("Erro ao salvar Hora e data");
+            } else {
+                alert("Sucesso ao salvar Hora e data");
+            }
+        }).catch(err => {
+
+        });
+    }
 
     return (
         <>
@@ -20,7 +35,7 @@ export default function Datetime() {
                 }}
                 />
                 <div className="btntop">
-                    <button onClick={() => {DatetimeService(time, date);}}>Enviar Dados</button>
+                    <button onClick={DateTime}>Atualizar</button>
                 </div>
             </div>
             <div className="line"></div>

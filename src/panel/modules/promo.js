@@ -24,7 +24,7 @@ export default function Promo() {
 
     async function senddata() {
         await promoService.sendData({
-            img: img,
+            imgdata: img,
             link: link,
             percent: percent,
             title: title,
@@ -76,7 +76,14 @@ export default function Promo() {
                 />
                 <label>Imagem</label>
                 <input type="file" onChange={(event) => {
-                    setImg(event.target.files[0]);
+                    // setImg(event.target.files[0]);
+                    // console.log(event.target.files[0]);
+                    var reader = new FileReader();
+                    reader.readAsDataURL(event.target.files[0]);
+                    reader.onload = function () {
+                        // console.log(reader.result);
+                        setImg(reader.result);
+                    };
                 }} ref={refproducts} />
                 <div className="btndados">
                     <button onClick={senddata}>Enviar Dados</button>
@@ -84,10 +91,10 @@ export default function Promo() {
             </div>
             <div className="pulldados">
                 <div className="container">
-                    {Array.from(pulldata).map((val) => {
+                    {Array.from(pulldata).map((val, index) => {
                         return (
-                            <div key={val.id} className="container-scroll">
-                                <button onClick={() => { deldata(val.id) }}>apagar</button>
+                            <div key={index} className="container-scroll">
+                                <button onClick={() => { deldata(val._id) }}>apagar</button>
                                 <figure className="image">
                                     <a href={val.link}>
                                         <p>{val.percent}</p>
