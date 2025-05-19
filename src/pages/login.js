@@ -7,6 +7,7 @@ export default function Login() {
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
   const [pubKey, setPubKey] = useState("");
+  const [input, setInput] = useState(true);
 
   const time = 30000;
 
@@ -33,6 +34,7 @@ export default function Login() {
   async function initial() {
     await app.get('/login').then(result => {
       setPubKey(result.data);
+      setInput(false);
     });
   }
 
@@ -64,10 +66,10 @@ export default function Login() {
       <div className='box-login'>
         <h1>Login</h1>
         <div>
-          <input type='text' placeholder='User' onChange={(event) => { setUser(event.target.value) }} />
+          <input type='text' placeholder='User' onChange={(event) => { setUser(event.target.value) }} disabled={input} />
         </div>
         <div>
-          <input type='text' placeholder='Pass' onChange={(event) => { setPass(event.target.value) }} />
+          <input type='text' placeholder='Pass' onChange={(event) => { setPass(event.target.value) }} disabled={input} />
         </div>
         <button onClick={() => { login() }} >Login</button>
       </div>
